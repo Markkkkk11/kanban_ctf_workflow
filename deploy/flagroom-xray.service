@@ -1,0 +1,28 @@
+[Unit]
+Description=Flagroom Russian egress proxy
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=flagroom-proxy
+Group=flagroom-proxy
+Environment=XRAY_LOCATION_ASSET=/usr/local/share/xray
+ExecStart=/usr/local/bin/xray run -c /etc/flagroom-xray/config.json
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=15
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+LockPersonality=true
+MemoryDenyWriteExecute=true
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[
+  {"title":"Cookie Monster","category":"Web","points":250,"solves":42},
+  {"title":"Baby RSA","category":"Crypto","points":100,"solves":86},
+  {"title":"Ghost in the Shell","category":"Pwn","points":350,"solves":17},
+  {"title":"Lost Signal","category":"Forensics","points":200,"solves":35},
+  {"title":"Behind the Mirror","category":"Reverse","points":400,"solves":9},
+  {"title":"Packet Picnic","category":"Forensics","points":150,"solves":52},
+  {"title":"Prototype Playground","category":"Web","points":300,"solves":26},
+  {"title":"Elliptic Dreams","category":"Crypto","points":450,"solves":4},
+  {"title":"Strange Machinery","category":"Reverse","points":300,"solves":18},
+  {"title":"Sanity Check","category":"Misc","points":50,"solves":120},
+  {"title":"Heap of Trouble","category":"Pwn","points":500,"solves":3},
+  {"title":"Hidden in Plain Sight","category":"Misc","points":100,"solves":64}
+]

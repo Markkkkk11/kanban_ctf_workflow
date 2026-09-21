@@ -1,0 +1,25 @@
+[Unit]
+Description=Flagroom serial CTFd flag submission worker
+After=network-online.target flagroom.service flagroom-xray.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=flagroom
+Group=flagroom
+WorkingDirectory=/opt/flagroom
+EnvironmentFile=/opt/flagroom/.env
+Environment=PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+ExecStart=/opt/flagroom/.venv/bin/python /opt/flagroom/flag_worker.py
+Restart=on-failure
+RestartSec=2
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/flagroom/instance
+
+[Install]
+WantedBy=multi-user.target

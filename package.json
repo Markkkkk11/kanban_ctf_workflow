@@ -1,0 +1,10 @@
+{
+  "name": "flagroom-browser-checks",
+  "private": true,
+  "scripts": {
+    "test:browser": ".venv/bin/python tests/run_browser.py"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1"
+  }
+}

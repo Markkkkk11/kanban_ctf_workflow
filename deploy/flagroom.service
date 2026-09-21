@@ -1,0 +1,26 @@
+[Unit]
+Description=Flagroom CTF team board
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=flagroom
+Group=flagroom
+WorkingDirectory=/opt/flagroom
+EnvironmentFile=/opt/flagroom/.env
+Environment=COOKIE_SECURE=1 SOURCE_WORKER_MODE=external PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
+ExecStart=/opt/flagroom/.venv/bin/gunicorn --config gunicorn.conf.py --bind 127.0.0.1:8000 --access-logfile - --error-logfile - app:app
+ExecReload=/bin/kill -HUP $MAINPID
+Restart=on-failure
+RestartSec=5
+TimeoutStopSec=100
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/opt/flagroom/instance
+
+[Install]
+WantedBy=multi-user.target
